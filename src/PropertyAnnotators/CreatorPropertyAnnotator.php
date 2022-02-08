@@ -66,7 +66,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 			if ( !( $creator instanceof User ) ) {
 				$creator = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $creator );
 			}
-			if ( ( $userPage = $creator->getUserPage() ) instanceof Title ) {
+			if ( ( $userPage = Title::makeTitle( NS_USER, $creator->getName() ) ) instanceof Title ) {
 				$dataItem = DIWikiPage::newFromTitle( $userPage );
 			}
 		}
