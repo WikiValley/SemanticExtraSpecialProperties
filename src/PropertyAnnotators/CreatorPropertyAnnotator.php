@@ -60,7 +60,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 		$creator = $page->getCreator();
 		$dataItem = null;
 
-		if ( $creator && ( $userPage = $creator->getUserPage() ) instanceof Title ) {
+		if ( $creator && ( $userPage = Title::makeTitle( NS_USER, $creator->getName() ) ) instanceof Title ) {
 			$dataItem = DIWikiPage::newFromTitle( $userPage );
 		}
 
